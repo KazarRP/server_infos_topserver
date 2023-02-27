@@ -6,10 +6,10 @@
 	<script>
 		$(document).ready(function() {
 			// Replace API_KEY with appropriate value
-			var api_key = "IYTIE1QABS";
+			var server_token = "IYTIE1QABS";
 
 			// Construct API URL with API key
-			var api_url = "https://api.top-serveurs.net/v1/servers/" + api_key;
+			var api_url = "https://api.top-serveurs.net/v1/servers/" + server_token;
 
 			// Fetch server information from API and update page content
 			$.getJSON(api_url, function(data) {
