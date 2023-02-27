@@ -1,0 +1,77 @@
+body {
+	background-color: #252522;
+	font-family: Arial, sans-serif;
+    color: #f9f9f9;
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+h1 {
+	font-size: 36px;
+	margin-top: 0;
+	margin-left: -10px;
+}
+
+.info {
+	margin-bottom: 20px;
+}
+
+.label {
+	font-weight: bold;
+	display: inline-block;
+	min-width: 120px;
+}
+
+.value {
+	margin-left: 10px;
+}
+
+.link {
+	margin-left: 10px;
+	color: #d19f72;
+	cursor: pointer;
+}
+
+a  {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+  
+li {
+    float: left;
+}
+  
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+  
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
+}
+
+.active {
+    background-color: #d19f72;
+    font-weight: bold;
+}
+
+#server_description {
+    margin-left: 0px;
+}
