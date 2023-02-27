@@ -6,10 +6,10 @@
 	<script>
 		$(document).ready(function() {
 			// Replace API_KEY with appropriate value
-			var server_token = "IYTIE1QABS";
+			var api_key = "IYTIE1QABS";
 
-			// Construct API URL with API key
-			var api_url = "https://api.top-serveurs.net/v1/servers/" + server_token;
+			// Construct API URL with server token and API key
+			var api_url = "https://api.top-serveurs.net/v1/servers/IYTIE1QABS?apiKey=" + api_key;
 
 			// Fetch server information from API and update page content
 			$.getJSON(api_url, function(data) {
@@ -18,8 +18,12 @@
 				$("#server_address").text(data.address);
 				$("#server_port").text(data.port);
 				$("#server_version").text(data.version);
-			}).fail(function(jqXHR, textStatus, errorThrown) {
-				$("#error_message").text("API Request Failed: " + errorThrown);
+				$("#server_players_online").text(data.players.online);
+				$("#server_max_players").text(data.players.max);
+				$("#server_rank").text(data.rank);
+				$("#server_vote_count").text(data.votes.count);
+				$("#server_vote_url").attr("href", data.votes.url);
+				$("#server_website_url").attr("href", data.website);
 			});
 		});
 	</script>
@@ -31,6 +35,11 @@
 	<p><strong>Address:</strong> <span id="server_address"></span></p>
 	<p><strong>Port:</strong> <span id="server_port"></span></p>
 	<p><strong>Version:</strong> <span id="server_version"></span></p>
-	<p id="error_message"></p>
+	<p><strong>Players Online:</strong> <span id="server_players_online"></span></p>
+	<p><strong>Max Players:</strong> <span id="server_max_players"></span></p>
+	<p><strong>Rank:</strong> <span id="server_rank"></span></p>
+	<p><strong>Votes:</strong> <span id="server_vote_count"></span></p>
+	<p><strong>Vote URL:</strong> <a id="server_vote_url" href=""></a></p>
+	<p><strong>Website URL:</strong> <a id="server_website_url" href=""></a></p>
 </body>
 </html>
