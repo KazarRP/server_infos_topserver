@@ -5,22 +5,21 @@
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script>
 		$(document).ready(function() {
-			// Replace SERVER_TOKEN with appropriate value
-			var server_token = "IYT1E1QABS";
+			// Replace API_KEY with appropriate value
+			var api_key = "IYTIE1QABS";
 
-			// Construct API URL with server token
-			var api_url = "https://api.top-serveurs.net/v1/servers/IYTIE1QABS"
+			// Construct API URL with API key
+			var api_url = "https://api.top-serveurs.net/v1/servers/" + api_key;
 
 			// Fetch server information from API and update page content
 			$.getJSON(api_url, function(data) {
 				$("#server_name").text(data.name);
 				$("#server_description").text(data.description);
-				$("#server_address").text(data.ip);
+				$("#server_address").text(data.address);
 				$("#server_port").text(data.port);
 				$("#server_version").text(data.version);
-			})
-			.fail(function(jqXHR, textStatus, errorThrown) {
-				$("#error_message").text("API Request Failed: " + textStatus);
+			}).fail(function(jqXHR, textStatus, errorThrown) {
+				$("#error_message").text("API Request Failed: " + errorThrown);
 			});
 		});
 	</script>
@@ -32,6 +31,6 @@
 	<p><strong>Address:</strong> <span id="server_address"></span></p>
 	<p><strong>Port:</strong> <span id="server_port"></span></p>
 	<p><strong>Version:</strong> <span id="server_version"></span></p>
-	<p><span id="error_message"></span></p>
+	<p id="error_message"></p>
 </body>
 </html>
