@@ -2,14 +2,44 @@
 <html>
 <head>
 	<title>Server Information</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			background-color: #f1f1f1;
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+		.container {
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 20px;
+		}
+		h1 {
+			font-size: 36px;
+			margin-top: 0;
+		}
+		.info {
+			margin-bottom: 20px;
+		}
+		.label {
+			font-weight: bold;
+			display: inline-block;
+			min-width: 120px;
+		}
+		.value {
+			margin-left: 10px;
+		}
+	</style>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script>
 		$(document).ready(function() {
-			// Replace API_KEY with appropriate value
-			var api_key = "IYTIE1QABS";
+			// Replace SERVER_TOKEN with appropriate value
+			var server_token = "IYTIE1QABS";
 
-			// Construct API URL with server token and API key
-			var api_url = "https://api.top-serveurs.net/v1/servers/IYTIE1QABS?apiKey=" + api_key;
+			// Construct API URL with server token
+			var api_url = "https://api.top-serveurs.net/v1/servers/" + server_token;
 
 			// Fetch server information from API and update page content
 			$.getJSON(api_url, function(data) {
@@ -18,28 +48,33 @@
 				$("#server_address").text(data.address);
 				$("#server_port").text(data.port);
 				$("#server_version").text(data.version);
-				$("#server_players_online").text(data.players.online);
-				$("#server_max_players").text(data.players.max);
-				$("#server_rank").text(data.rank);
-				$("#server_vote_count").text(data.votes.count);
-				$("#server_vote_url").attr("href", data.votes.url);
-				$("#server_website_url").attr("href", data.website);
 			});
 		});
 	</script>
 </head>
 <body>
-	<h1>Server Information</h1>
-	<p><strong>Name:</strong> <span id="server_name"></span></p>
-	<p><strong>Description:</strong> <span id="server_description"></span></p>
-	<p><strong>Address:</strong> <span id="server_address"></span></p>
-	<p><strong>Port:</strong> <span id="server_port"></span></p>
-	<p><strong>Version:</strong> <span id="server_version"></span></p>
-	<p><strong>Players Online:</strong> <span id="server_players_online"></span></p>
-	<p><strong>Max Players:</strong> <span id="server_max_players"></span></p>
-	<p><strong>Rank:</strong> <span id="server_rank"></span></p>
-	<p><strong>Votes:</strong> <span id="server_vote_count"></span></p>
-	<p><strong>Vote URL:</strong> <a id="server_vote_url" href=""></a></p>
-	<p><strong>Website URL:</strong> <a id="server_website_url" href=""></a></p>
+	<div class="container">
+		<h1>Server Information</h1>
+		<div class="info">
+			<span class="label">Name:</span>
+			<span class="value" id="server_name"></span>
+		</div>
+		<div class="info">
+			<span class="label">Description:</span>
+			<span class="value" id="server_description"></span>
+		</div>
+		<div class="info">
+			<span class="label">Address:</span>
+			<span class="value" id="server_address"></span>
+		</div>
+		<div class="info">
+			<span class="label">Port:</span>
+			<span class="value" id="server_port"></span>
+		</div>
+		<div class="info">
+			<span class="label">Version:</span>
+			<span class="value" id="server_version"></span>
+		</div>
+	</div>
 </body>
 </html>
