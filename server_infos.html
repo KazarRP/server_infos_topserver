@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Server Information</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			// Replace SERVER_TOKEN with appropriate value
+			var server_token = "IYT1E1QABS";
+
+			// Construct API URL with server token
+			var api_url = "https://api.top-serveurs.net/v1/servers/" + server_token;
+
+			// Fetch server information from API and update page content
+			$.getJSON(api_url, function(data) {
+				$("#server_name").text(data.name);
+				$("#server_description").text(data.description);
+				$("#server_address").text(data.ip);
+				$("#server_port").text(data.port);
+				$("#server_version").text(data.version);
+			})
+			.fail(function(jqXHR, textStatus, errorThrown) {
+				$("#error_message").text("API Request Failed: " + textStatus);
+			});
+		});
+	</script>
+</head>
+<body>
+	<h1>Server Information</h1>
+	<p><strong>Name:</strong> <span id="server_name"></span></p>
+	<p><strong>Description:</strong> <span id="server_description"></span></p>
+	<p><strong>Address:</strong> <span id="server_address"></span></p>
+	<p><strong>Port:</strong> <span id="server_port"></span></p>
+	<p><strong>Version:</strong> <span id="server_version"></span></p>
+	<p><span id="error_message"></span></p>
+</body>
+</html>
