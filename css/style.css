@@ -56,7 +56,7 @@ li {
   
 li a {
     display: block;
-    color: white;
+    color: #f9f9f9;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -74,4 +74,51 @@ li a:hover {
 
 #server_description {
     margin-left: 0px;
+}
+
+table {
+	border-collapse: collapse;
+	margin-top: 20px;
+	width: 100%;
+}
+
+thead {
+	background-color: #252522;
+}
+
+th, td {
+	text-align: left;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: #252522;
+}
+
+.button {
+	display: flex;
+	justify-content: left;
+	align-items: center;
+}
+
+#switch-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 90px;
+	padding: 5px;
+    text-decoration: none;
+	background: none;
+	border: #d19f72 1px solid;
+	color: #d19f72;
+}
+
+#switch-button:hover {
+	border: #f9f9f9 1px solid;
+	cursor: pointer;
+	transition: 0.2s;
+}
+
+#switch-button:active {
+	color: #f9f9f9;
 }
