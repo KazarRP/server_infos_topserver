@@ -139,10 +139,10 @@ switchButton.addEventListener("click", function() {
 	// Toggle ranking_type between "current" and "lastMonth"
 	if (ranking_type === "current") {
 		ranking_type = "lastMonth";
-		switchButton.textContent = "Voir : actuel";
+		switchButton.textContent = "Voir le classement du mois en cours";
 	} else {
 		ranking_type = "current";
-		switchButton.textContent = "Voir : mois dernier";
+		switchButton.textContent = "Voir le classement du mois dernier";
 	}
 
 	// Update API URL with new ranking_type and fetch player ranking
